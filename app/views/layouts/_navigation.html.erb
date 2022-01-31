@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "ADS", root_path, class: "navbar-brand",  id: "logo" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item <%=is_active_nav_item('home')%>">
+        <% if current_page?(root_path) %>
+        <%=   link_to ("Home <span class='sr-only'>(current)</span>").html_safe, root_path, class: "nav-link" %>
+        <% else %>
+        <%=   link_to "Home", root_path, class: "nav-link" %>
+        <% end %>
+      </li>
+      <li class="nav-item <%=is_active_nav_item('index')%>">
+        <% if current_page?(articles_path) %>
+        <%=   link_to ("Articles <span class='sr-only'>(current)</span>").html_safe, articles_path, class: "nav-link" %>
+        <% else %>
+        <%=   link_to "Articles", articles_path, class: "nav-link" %>
+        <% end %>
+      </li>
+      <li class="nav-item <%=is_active_nav_item('about')%>">
+        <% if current_page?(about_path) %>
+        <%=   link_to ("About <span class='sr-only'>(current)</span>").html_safe, about_path, class: "nav-link" %>
+        <% else %>
+        <%=   link_to "About", about_path, class: "nav-link" %>
+        <% end %>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
