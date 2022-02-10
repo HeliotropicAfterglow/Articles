@@ -27,13 +27,15 @@
         <%=   link_to "About", about_path, class: "nav-link" %>
         <% end %>
       </li>
-      <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.  
+      <% if user_signed_in? %>         
         <li class="nav-item">
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'nav-link' %>
         </li>
         <li class="nav-item">
-          <<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Logged in as <strong><%= current_user.username%></strong> </a>
         </li>
       <% else %>
         <li class="nav-item">
