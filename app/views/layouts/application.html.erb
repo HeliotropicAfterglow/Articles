@@ -13,6 +13,8 @@
   <body class="d-flex flex-column min-vh-100">
     <%= render 'layouts/navigation' %>
     <%= render 'layouts/messages' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
