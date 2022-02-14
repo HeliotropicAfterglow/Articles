@@ -5,7 +5,7 @@
         <% @articles.each do |article| %>
             <div class="card m-2">
                 <div class="card-header font-italic">
-                    by a <strong>user</strong> 
+                    by <strong><%= article.user.username %></strong> 
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"><%= link_to article.title, article_path(article) %></h5>

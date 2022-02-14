@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
 
   def create
     # render plain: params[:article]
-    @article = Article.new(article_params)
+    @article = Article.new(article_params.merge(user_id: current_user.id))
     # render plain: @article.inspect
     if @article.save
       # redirect_to article_path(@article)
