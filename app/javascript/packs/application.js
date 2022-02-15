@@ -9,6 +9,28 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "bootstrap"
 
+import Vue from 'vue/dist/vue.esm';
+import TurbolinksAdapter from 'vue-turbolinks';
+import Vuetify from 'vuetify';
+import 'vuetify/dist/vuetify.min.css';
+import './components'
+import axios from "axios"
+
+Vue.use(TurbolinksAdapter);
+Vue.use(Vuetify);
+const vuetify = new Vuetify();
+
+const token = document.querySelector('meta[name="csrf-token"]');
+if (token) axios.defaults.headers.common['X-CSRF-Token'] = token.getAttribute('content');
+
+
+document.addEventListener('turbolinks:load', () => {
+  new Vue({
+    el: '[data-behavior="vue"]',
+    vuetify,
+  });
+});
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

@@ -11,11 +11,15 @@
   </head>
 
   <body class="d-flex flex-column min-vh-100">
-    <%= render 'layouts/navigation' %>
-    <%= render 'layouts/messages' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
+    <div data-behavior="vue">
+      <v-app>
+        <%= render 'layouts/navigation' %>
+        <!--%= render 'layouts/messages' %-->
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+        <%= yield %>
+        <%= render 'layouts/footer' %>
+      </v-app>
+    </div>
   </body>
 </html>

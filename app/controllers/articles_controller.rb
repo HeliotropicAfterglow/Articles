@@ -21,14 +21,17 @@ class ArticlesController < ApplicationController
   def create
     # render plain: params[:article]
     @article = Article.new(article_params.merge(user_id: current_user.id))
-    # render plain: @article.inspect
     if @article.save
-      # redirect_to article_path(@article)
-      flash[:notice] = "Article was created successfully."
-      redirect_to @article
+      # flash[:notice] = "Article added successfully."
+      render json: {
+        notice: 'Article created successfully'
+      }, status: 200
     else
-      render 'new'
-    end
+      # flash[:alert] = @article.errors.full_messages
+      render json: {
+        errors: @article.errors.full_messages
+      }, status: 400
+    end   
   end
 
   def update
